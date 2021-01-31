@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'annotate'
 
 
 # Use Active Storage variant
