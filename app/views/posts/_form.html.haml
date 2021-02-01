@@ -1,0 +1,27 @@
+= form_with(model: post, local: true) do |form|
+  .ui.form
+    .field.required
+      = form.label :title, 'タイトル'
+      = form.text_field :title
+      - if post.errors.include?(:title)
+        %p.ui.pointing.red.basic.label
+          %i.attention.circle.icon
+          = post.errors.full_messages_for(:title).first
+    .field.required
+      = form.label :content, '内容'
+      = form.text_area :content
+      - if post.errors.include?(:content)
+        %p.ui.pointing.red.basic.label
+          %i.attention.circle.icon
+          = post.errors.full_messages_for(:content).first
+    .actions
+      = form.submit '保存', class: 'ui primary button'
+
+    -# - if post.errors.any?
+    -#   #error_explanation
+    -#     %h2
+    -#       = pluralize(post.errors.count, "error")
+    -#       prohibited this post from being saved:
+    -#     %ul
+    -#       - post.errors.full_messages.each do |message|
+    -#         %li= message
